@@ -2318,7 +2318,7 @@ angular.module('ui-leaflet').service('leafletMarkersHelpers', ["$rootScope", "$t
         }
     };
 
-    var _deleteMarker = function _deleteMarker(marker, map, layers) {
+    var _deleteMarker = function _deleteMarker(marker, map, layers, markerData) {
         marker.closePopup();
         // There is no easy way to know if a marker is added to a layer, so we search for it
         // if there are overlays
@@ -2344,6 +2344,9 @@ angular.module('ui-leaflet').service('leafletMarkersHelpers', ["$rootScope", "$t
         if (map.hasLayer(marker)) {
             map.removeLayer(marker);
         }
+
+        if( markerData && angular.isFunction(markerData.getMessageScope))
+            markerData.getMessageScope().$destroy();
     };
 
     var adjustPopupPan = function adjustPopupPan(marker, map) {
@@ -2425,7 +2428,7 @@ angular.module('ui-leaflet').service('leafletMarkersHelpers', ["$rootScope", "$t
         // Update the lat-lng property (always present in marker properties)
         if (!geoHlp.validateCoords(markerData)) {
             $log.warn('There are problems with lat-lng data, please verify your marker model');
-            _deleteMarker(marker, map, layers);
+            _deleteMarker(marker, map, layers, oldMarkerData);
             return;
         }
 
@@ -2746,7 +2749,7 @@ angular.module('ui-leaflet').service('leafletMarkersHelpers', ["$rootScope", "$t
 
             maybeWatch(leafletScope, markerWatchPath, watchOptions, function (markerData, oldMarkerData, clearWatch) {
                 if (!isDefined(markerData)) {
-                    _deleteMarker(marker, map, layers);
+                    _deleteMarker(marker, map, layers, oldMarkerData);
                     clearWatch();
                     return;
                 }
