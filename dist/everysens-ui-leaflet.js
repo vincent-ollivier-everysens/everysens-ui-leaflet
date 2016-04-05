@@ -1,5 +1,5 @@
 /*!
-*  ui-leaflet 1.0.1 2015-10-29
+*  everysens-ui-leaflet 1.0.1 2016-04-05
 *  ui-leaflet - An AngularJS directive to easily interact with Leaflet maps
 *  git: https://github.com/angular-ui/ui-leaflet
 */
@@ -1049,7 +1049,7 @@ angular.module('ui-leaflet').service('leafletHelpers', ["$q", "$log", function (
                     return false;
                 }
             }
-        },
+        },          
         ChinaLayerPlugin: {
             isLoaded: function() {
                 return angular.isDefined(L.tileLayer.chinaProvider);
@@ -1650,7 +1650,7 @@ angular.module('ui-leaflet')
                 }
                 return new L.TileLayer.Provider(provider, params.options);
             }
-        },
+        },            
         china:{
             mustHaveUrl:false,
             createLayer:function(params){
@@ -2361,7 +2361,6 @@ angular.module('ui-leaflet').service('leafletMarkersHelpers', ["$rootScope", "$t
 
     var _deleteMarker = function (marker, map, layers, markerData) {
         marker.closePopup();
-
         // There is no easy way to know if a marker is added to a layer, so we search for it
         // if there are overlays
         if (isDefined(layers) && isDefined(layers.overlays)) {
@@ -2386,11 +2385,9 @@ angular.module('ui-leaflet').service('leafletMarkersHelpers', ["$rootScope", "$t
         if (map.hasLayer(marker)) {
             map.removeLayer(marker);
         }
-
-
+        
         if( markerData && angular.isFunction(markerData.getMessageScope))
-            markerData.getMessageScope().$destroy();
-
+            markerData.getMessageScope().$destroy();        
     };
 
     var adjustPopupPan = function(marker, map) {
@@ -2795,7 +2792,7 @@ angular.module('ui-leaflet').factory('leafletPathsHelpers', ["$rootScope", "leaf
         isNumber = leafletHelpers.isNumber,
         isValidPoint = leafletHelpers.isValidPoint,
         $log = leafletLogger;
-
+        
     var availableOptions = [
         // Path options
         'stroke', 'weight', 'color', 'opacity',
