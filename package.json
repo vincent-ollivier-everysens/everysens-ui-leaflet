@@ -7,7 +7,7 @@
   "homepage": "http://angular-ui.github.io/ui-leaflet/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/angular-ui/ui-leaflet"
+    "url": "https://github.com/vincent-ollivier-everysens/everysens-ui-leaflet.git"
   },
   "keywords": [
     "angularjs",
@@ -67,10 +67,10 @@
     "karmaChrome": "grunt test-unit-chrome",
     "karmaChromeOnce": "grunt karma:unit-chrome-once"
   },
-  "main": "dist/ui-leaflet.js",
+  "main": "dist/everysens-ui-leaflet.js",
   "dependencies": {
     "angular": "1.x",
     "angular-simple-logger": "~0.1.4",
-    "leaflet": "0.7.x"
+    "leaflet": "~1.0.0-beta.2"
   }
 }
