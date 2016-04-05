@@ -12,7 +12,7 @@
     "angular-ui"
   ],
   "main": [
-    "dist/ui-leaflet.js"
+    "dist/everysens-ui-leaflet.js"
   ],
   "dependencies": {
     "angular": "1.x",
