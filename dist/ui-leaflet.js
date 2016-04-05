@@ -1,5 +1,5 @@
 /*!
-*  ui-leaflet 1.0.0 2015-10-29
+*  ui-leaflet 1.0.1 2015-10-29
 *  ui-leaflet - An AngularJS directive to easily interact with Leaflet maps
 *  git: https://github.com/angular-ui/ui-leaflet
 */
@@ -1049,7 +1049,7 @@ angular.module('ui-leaflet').service('leafletHelpers', ["$q", "$log", function (
                     return false;
                 }
             }
-        },          
+        },
         ChinaLayerPlugin: {
             isLoaded: function() {
                 return angular.isDefined(L.tileLayer.chinaProvider);
@@ -1650,7 +1650,7 @@ angular.module('ui-leaflet')
                 }
                 return new L.TileLayer.Provider(provider, params.options);
             }
-        },            
+        },
         china:{
             mustHaveUrl:false,
             createLayer:function(params){
@@ -2795,7 +2795,7 @@ angular.module('ui-leaflet').factory('leafletPathsHelpers', ["$rootScope", "leaf
         isNumber = leafletHelpers.isNumber,
         isValidPoint = leafletHelpers.isValidPoint,
         $log = leafletLogger;
-        
+
     var availableOptions = [
         // Path options
         'stroke', 'weight', 'color', 'opacity',
